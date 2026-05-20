@@ -26,6 +26,6 @@ int main(){
    count++;
    
    }
-   cout<<"Total Node"<<count;
+   cout<<"Total Node :"<<count;
    return 0;
 }
