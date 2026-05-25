@@ -1,5 +1,5 @@
 #include<iostream>
-//largest element in an array 
+//largest element in an arra
 int main(){
     int max =0;
     int arr[5]={28,45,23,42,7};
