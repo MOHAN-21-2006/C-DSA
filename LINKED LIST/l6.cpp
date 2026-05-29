@@ -1,48 +1,35 @@
 #include <iostream>
-//insert node at the end
+//insert node at the middle 
 using namespace std;
 
-struct Node {
+struct node {
     int data;
-    Node* next;
+    node* next;
 };
+int main(){
+    node*head=new node();
+    node*second=new node();
+    node*third=new node();
 
-void insertAtEnd(Node*& head, int value) {
-    Node* newNode = new Node();
-    newNode->data = value;
-    newNode->next = NULL;
+    head->data=10;
+    head->next=second;
 
-    if (head == NULL) {
-        head = newNode;
-        return;
+    second->data = 20;
+    second->next =third;
+
+    third->data = 30;
+    third->next =NULL;
+
+    node*newnode = new node();
+    newnode->data = 5;
+    newnode->next =third;
+
+    second->next=newnode;
+    node*temp=head;
+    while(temp != NULL){
+        cout<<temp->data<<endl;
+        temp=temp->next;
     }
-
-    Node* temp = head;
-
-    while (temp->next != NULL) {
-        temp = temp->next;
-    }
-
-    temp->next = newNode;
-}
-
-void display(Node* head) {
-    while (head != NULL) {
-        cout << head->data << " -> ";
-        head = head->next;
-    }
-
-    cout << "NULL";
-}
-
-int main() {
-    Node* head = NULL;
-
-    insertAtEnd(head, 10);
-    insertAtEnd(head, 20);
-    insertAtEnd(head, 30);
-
-    display(head);
 
     return 0;
 }

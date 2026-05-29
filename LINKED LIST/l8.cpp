@@ -1,51 +1,35 @@
 #include <iostream>
-//delete first node
+//delete middle node  
 using namespace std;
 
-class Node {
-public:
+struct node {
     int data;
-    Node* next;
+    node* next;
 };
+int main(){
+    node*head=new node();
+    node*second=new node();
+    node*third=new node();
 
-// Display function
-void display(Node* head) {
+    head->data=10;
+    head->next=second;
 
-    Node* temp = head;
-
-    while(temp != NULL) {
-        cout << temp->data << " -> ";
-        temp = temp->next;
-    }
-
-    cout << "NULL";
-}
-
-int main() {
-
-    // Create nodes
-    Node* head = new Node();
-    Node* second = new Node();
-    Node* third = new Node();
-
-    // Assign data
-    head->data = 10;
     second->data = 20;
+    second->next =third;
+
     third->data = 30;
+    third->next =NULL;
 
-    // Link nodes
-    head->next = second;
-    second->next = third;
-    third->next = NULL;
+    node*pre=head;
+    node*target=second;
+    pre->next = target->next;
+    delete target;
 
-    cout << "Before Deletion:\n";
-    display(head);
-
-    // Delete first node
-    head = head->next;
-
-    cout << "\n\nAfter Deletion:\n";
-    display(head);
+    node*temp=head;
+    while(temp != NULL){
+        cout<<temp->data<<endl;
+        temp=temp->next;
+    }
 
     return 0;
 }
