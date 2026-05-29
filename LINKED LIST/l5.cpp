@@ -1,38 +1,35 @@
-#include <iostream>
-//node instruction at the begining
+#include<iostream>
+//node insertion in starting of linked list
 using namespace std;
-
-struct Node {
+struct node{
     int data;
-    Node* next;
+    node*next;
 };
+int main(){
+    node*head=new node();
+    node*second=new node();
+    node*third=new node();
 
-void insertAtBeginning(Node*& head, int value) {
-    Node* newNode = new Node();
+    head->data=10;
+    head->next=second;
 
-    newNode->data = value;
-    newNode->next = head;
+    second->data = 20;
+    second->next =third;
 
-    head = newNode;
-}
+    third->data = 30;
+    third->next =NULL;
+    
+    node*newnode = new node();
+    newnode->data =5;
+    newnode->next =head;
+    head=newnode;
 
-void display(Node* head) {
-    while (head != NULL) {
-        cout << head->data << " -> ";
-        head = head->next;
+    node*temp=head;
+    while(temp != NULL){
+        cout<<temp->data<<endl;
+        temp=temp->next;
     }
 
-    cout << "NULL";
-}
-
-int main() {
-    Node* head = NULL;
-
-    insertAtBeginning(head, 30);
-    insertAtBeginning(head, 20);
-    insertAtBeginning(head, 10);
-
-    display(head);
-
     return 0;
+    
 }
